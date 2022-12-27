@@ -1,0 +1,96 @@
+<div class="container mt-4">
+  <!-- add contact form -->
+  <div class="container">
+    <h1 class="text-center mb-5">User Data</h1>
+    <div class="row">
+      <div class="col-md-5">
+        <form
+          #simpleForm="ngForm"
+          (ngSubmit)="getValues(simpleForm.value)"
+          class="border p-3 rounded mb-5"
+        >
+          <div class="mb-2">
+            <input
+              name="name"
+              type="text"
+              class="form-control"
+              placeholder="Name"
+              ngModel
+            />
+          </div>
+          <div class="mb-2">
+            <input
+              name="email"
+              type="email"
+              class="form-control"
+              placeholder="Email ID"
+              ngModel
+            />
+          </div>
+          <div class="mb-2">
+            <input
+              name="mobile"
+              type="text"
+              class="form-control"
+              placeholder="Mobile Number"
+              ngModel
+            />
+          </div>
+          <div class="mb-2">
+            <input
+              name="company"
+              type="text"
+              class="form-control"
+              placeholder="Company"
+              ngModel
+            />
+          </div>
+          <div class="mb-2">
+            <input
+              name="title"
+              type="text"
+              class="form-control"
+              placeholder="Title"
+              ngModel
+            />
+          </div>
+          <div class="mb-2">
+            <select name="group" id="" class="form-control" ngModel>
+              <option value="" selected hidden disabled>Select A Group</option>
+              <option value="Family">Family</option>
+              <option value="Friends">Friends</option>
+              <option value="Colleague">Colleague</option>
+            </select>
+          </div>
+          <div class="mb-2">
+            <button class="btn btn-success">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-7 text-center">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Mobile</th>
+              <th scope="col">Company</th>
+              <th scope="col">Title</th>
+              <th scope="col">Group</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{ user.name }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.mobile }}</td>
+              <td>{{ user.company }}</td>
+              <td>{{ user.title }}</td>
+              <td>{{ user.group }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
