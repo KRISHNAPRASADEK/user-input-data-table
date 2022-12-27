@@ -4,58 +4,59 @@
     <h1 class="text-center mb-5">User Data</h1>
     <div class="row">
       <div class="col-md-5">
-        <form
-          #simpleForm="ngForm"
-          (ngSubmit)="getValues(simpleForm.value)"
-          class="border p-3 rounded mb-5"
-        >
+        <form [formGroup]="userForm" class="border p-3 rounded mb-5">
           <div class="mb-2">
             <input
+              formControlName="name"
               name="name"
               type="text"
               class="form-control"
               placeholder="Name"
-              ngModel
             />
           </div>
           <div class="mb-2">
             <input
+              formControlName="email"
               name="email"
               type="email"
               class="form-control"
               placeholder="Email ID"
-              ngModel
             />
           </div>
           <div class="mb-2">
             <input
+              formControlName="mobile"
               name="mobile"
               type="text"
               class="form-control"
               placeholder="Mobile Number"
-              ngModel
             />
           </div>
           <div class="mb-2">
             <input
+              formControlName="company"
               name="company"
               type="text"
               class="form-control"
               placeholder="Company"
-              ngModel
             />
           </div>
           <div class="mb-2">
             <input
+              formControlName="title"
               name="title"
               type="text"
               class="form-control"
               placeholder="Title"
-              ngModel
             />
           </div>
           <div class="mb-2">
-            <select name="group" id="" class="form-control" ngModel>
+            <select
+              formControlName="group"
+              name="group"
+              id=""
+              class="form-control"
+            >
               <option value="" selected hidden disabled>Select A Group</option>
               <option value="Family">Family</option>
               <option value="Friends">Friends</option>
@@ -63,7 +64,7 @@
             </select>
           </div>
           <div class="mb-2">
-            <button class="btn btn-success">Submit</button>
+            <button class="btn btn-success" (click)="addItem()">Submit</button>
           </div>
         </form>
       </div>
@@ -80,7 +81,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let user of users">
+            <tr *ngFor="let user of listData">
               <td>{{ user.name }}</td>
               <td>{{ user.email }}</td>
               <td>{{ user.mobile }}</td>
